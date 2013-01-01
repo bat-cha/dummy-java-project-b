@@ -1,0 +1,24 @@
+version = '0.1.0'
+group = 'org.batcha'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+  compile (       
+       ['commons-logging:commons-logging:1.1.1']              
+  ) 
+ 
+  testCompile(
+      ['junit:junit:4.11']
+
+  )
+}
