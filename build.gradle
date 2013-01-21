@@ -2,6 +2,7 @@ version = '0.1.0'
 group = 'org.batcha'
 
 apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 1.6
