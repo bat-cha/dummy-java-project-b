@@ -12,10 +12,14 @@ repositories {
 	mavenCentral()
 }
 
+
+apply from: 'https://raw.github.com/bat-cha/gradle-plugin-git-dependencies/0.1/git-dependencies.gradle'
+
 dependencies {
   compile (       
-       ['commons-logging:commons-logging:1.1.1']              
-  ) 
+       ['commons-logging:commons-logging:1.1.1']                     
+  )
+  compile('org.batcha:dummy-project-a:4.2').ext.git = 'https://github.com/bat-cha/dummy-java-project-a.git'
  
   testCompile(
       ['junit:junit:4.11']
