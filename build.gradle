@@ -1,7 +1,21 @@
 version = '0.1.0'
 group = 'org.batcha'
 
-apply plugin: 'java'
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.1'
+        classpath 'org.batcha.gradle.plugins:git-dependencies:0.1'
+    }
+}
+
+
+
+apply plugin: 'android'
+//apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
 
@@ -14,16 +28,15 @@ repositories {
 }
 
 
-apply from: 'https://raw.github.com/bat-cha/gradle-plugin-git-dependencies/0.1/git-dependencies.gradle'
+apply plugin: 'git-dependencies'
+android {
+  dependencies {
 
-dependencies {
-  compile (       
-       ['commons-logging:commons-logging:1.1.1']                     
-  )
-  compile('org.batcha:dummy-project-a:4.2').ext.git = 'https://github.com/bat-cha/dummy-java-project-a.git'
+    compile('org.batcha:dummy-project-a:4.2').ext.git = 'https://github.com/bat-cha/dummy-java-project-a.git'
+
+
+  }
+
  
-  testCompile(
-      ['junit:junit:4.11']
-
-  )
 }
+task wrapper(type: Wrapper) { gradleVersion = '1.2' }
